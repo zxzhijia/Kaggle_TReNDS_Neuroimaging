@@ -21,3 +21,7 @@ https://www.kaggle.com/aerdem4/rapids-svm-on-trends-neuroimaging
 score: 0.159
 
 interesting cuML python API runs ML on GPU
+
+## related papers:
+
+https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0066572
