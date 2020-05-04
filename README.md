@@ -13,3 +13,8 @@ Merger Deadline: June 22, 2020
 Entry Deadline: June 22, 2020
 
 End Date (Final Submission Deadline): June 29, 2020 11:59 PM UTC
+
+## notebooks:
+
+https://www.kaggle.com/aerdem4/rapids-svm-on-trends-neuroimaging
+score: 0.159
