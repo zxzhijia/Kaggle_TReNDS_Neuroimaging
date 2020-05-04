@@ -17,4 +17,7 @@ End Date (Final Submission Deadline): June 29, 2020 11:59 PM UTC
 ## notebooks:
 
 https://www.kaggle.com/aerdem4/rapids-svm-on-trends-neuroimaging
+
 score: 0.159
+
+interesting cuML python API runs ML on GPU
