@@ -5,3 +5,11 @@ A simple and well-designed structure is essential for Machine Learning / Deep Le
 ## project info
 
 link: https://www.kaggle.com/c/trends-assessment-prediction
+
+Deadline: 
+
+Merger Deadline: June 22, 2020
+
+Entry Deadline: June 22, 2020
+
+End Date (Final Submission Deadline): June 29, 2020 11:59 PM UTC
