@@ -16,13 +16,13 @@ def data_process(data):
     fnc_df = data.fnc_df
     loading_df = data.loading_df
     labels_df = data.labels_df
+
     fnc_features, loading_features = list(fnc_df.columns[1:]), list(loading_df.columns[1:])
     df = fnc_df.merge(loading_df, on="Id")
     labels_df["is_train"] = True
     df = df.merge(labels_df, on="Id", how="left")
 
     test_df = df[df["is_train"] != True].copy()
-
     target_cols = ['age', 'domain1_var1', 'domain1_var2', 'domain2_var1', 'domain2_var2']
     test_df = test_df.drop(target_cols + ['is_train'], axis=1)
 
@@ -53,5 +53,3 @@ if __name__ == "__main__":
 
     data_loader = DataLoader(config[1])
     test_df, target_cols = data_process(data_loader)
-    print(test_df)
-    print(target_cols)
