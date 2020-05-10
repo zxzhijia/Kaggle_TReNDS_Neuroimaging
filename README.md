@@ -26,6 +26,10 @@ interesting cuML python API runs ML on GPU
 
 https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0066572
 
+## terms:
+
+FE: feature extraction
+
 ## more details:
 
 Neuroimaging
