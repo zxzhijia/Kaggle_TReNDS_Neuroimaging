@@ -10,6 +10,7 @@ import sys
 sys.path.append("../")
 from data_loader.data_load import DataLoader
 from utils.config import get_config_from_json
+from models.svm_model import train_svm
 
 def data_process(data):
 
@@ -22,13 +23,16 @@ def data_process(data):
     labels_df["is_train"] = True
     df = df.merge(labels_df, on="Id", how="left")
 
+    train_df = df[df["is_train"] == True].copy()
     test_df = df[df["is_train"] != True].copy()
     target_cols = ['age', 'domain1_var1', 'domain1_var2', 'domain2_var1', 'domain2_var2']
     test_df = test_df.drop(target_cols + ['is_train'], axis=1)
+    # train_df = train_df.drop(target_cols + ['is_train'], axis=1)
 
     # Giving less importance to FNC features since they are easier to overfit due to high dimensionality.
     FNC_SCALE = 1/500
     test_df[fnc_features] *= FNC_SCALE
+    train_df[fnc_features] *= FNC_SCALE
     target_models_dict = {
     'age': 'age_br',
     'domain1_var1':'domain1_var1_ridge',
@@ -37,7 +41,7 @@ def data_process(data):
     'domain2_var2':'domain2_var2_svm',
     }
 
-    return test_df, target_cols
+    return train_df, test_df, target_cols, loading_features, fnc_features
 
 if __name__ == "__main__":
     # capture the config path from the run arguments
@@ -52,4 +56,5 @@ if __name__ == "__main__":
 
 
     data_loader = DataLoader(config[1])
-    test_df, target_cols = data_process(data_loader)
+    train_df, test_df, target_cols, loading_features, fnc_features = data_process(data_loader)
+    train_svm(config[1]['num_fold'], loading_features, fnc_features, train_df, test_df)

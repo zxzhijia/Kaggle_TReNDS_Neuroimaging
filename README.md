@@ -98,3 +98,5 @@ elbow points for explained variance and PCA technique
 Structural (grey matter volume) correlations
 
 High resolution may not always help, and also waste time to process data
+=======
+>>>>>>> data_load
